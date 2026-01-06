@@ -1,9 +1,14 @@
 ﻿{
   "name": "com.pizzapopcorn.unityjs",
   "version": "1.0.0",
-  "displayName": "Package Example",
-  "description": "This is an example package",
+  "displayName": "UnityJS",
+  "description": "This package will let you interact with your Unity WebGL build from JS in a more efficient way than using SendMessage.",
   "unity": "2020.3",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "documentationUrl": "https://github.com/PizzaPopcorn/unityjs-unity-plugin",
+  "changelogUrl": "https://github.com/PizzaPopcorn/unityjs-unity-plugin/blob/master/CHANGELOG.md",
   "author": {
     "name": "Andres Urrutia",
     "url": "https://github.com/PizzaPopcorn"

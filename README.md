@@ -1,4 +1,4 @@
-# UnityJs
+# UnityJS
 This library will let you interact with your Unity WebGL build from JS in a more efficient way than using SendMessage. It also includes a JavaScript library for using all available unity functions.
 
 If you are developing a web game that can't run in editor because it depends on browser stuff or you simply want to prototype fast directly in the browser, this plugin is for you.
