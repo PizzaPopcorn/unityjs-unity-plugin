@@ -1,56 +1,15 @@
 # UnityJs
 This library will let you interact with your Unity WebGL build from JS in a more efficient way than using SendMessage. It also includes a JavaScript library for using all available unity functions.
 
-If you are developing a web game that can't run in editor because it depends on browser stuff or you simply want to prototype fast directly in the browser, this plugi is for you.
+If you are developing a web game that can't run in editor because it depends on browser stuff or you simply want to prototype fast directly in the browser, this plugin is for you.
 
 ## How to use
-1. Add this repository as a submodule in your project (Package manager option coming soon).
+1. Install this repo as a package in your Unity project using the package manager.
 2. Add a null object to your starting scene and drag the `JSInstance.cs` behavior to it.
 3. Drag the `JSKeyGameObject` to each object you want to expose directly to JavaScript and set a key to identify it. You will be able to access any object down in its hierarchy from JS.
 4. Recommended: To maximize the fast prototyping potencial, export all of your game content to asset bundles, that way you don't have to build the game each time, just update your bundles.
-5. Copy the code below and paste it in a new file with the extension .jslib under your Plugins folder. You can name it `unityJS.jslib`
-```js
-mergeInto(LibraryManager.library , {
-    Lib_InstanceReady: function () {
-      window.Unity._instanceReady();
-    },
-    
-    Lib_StartListeningToClientEvents: function(callback) {
-       window.Unity._registerClientListener(function(event, payload) {
-           var eventBufferSize = lengthBytesUTF8(event) + 1;
-           var eventBuffer = _malloc(eventBufferSize);
-           stringToUTF8(event, eventBuffer, eventBufferSize);
-           var payloadBufferSize = lengthBytesUTF8(payload) + 1;
-           var payloadBuffer = _malloc(payloadBufferSize);
-           stringToUTF8(payload, payloadBuffer, payloadBufferSize);
-           var responseJson = {{{ makeDynCall('iii', 'callback') }}} (eventBuffer, payloadBuffer);
-           _free(eventBuffer);
-           _free(payloadBuffer);
-           return UTF8ToString(responseJson);
-       });
-    },
-
-    Lib_SendEventToClient: function (eventName, payloadJson) {
-        window.Unity._receiveEvent(UTF8ToString(eventName), UTF8ToString(payloadJson));
-    },
-    
-    Lib_RegisterKeyGameObject: function (key, dataJson) {
-       var data = JSON.parse(UTF8ToString(dataJson));
-       window.Unity.GameObject._register(UTF8ToString(key), data);
-    },
-    
-    Lib_SendGameObjectLifeCycleEvent: function (key, event) {
-        window.Unity.GameObject._receiveLifeCycleEvent(UTF8ToString(key), UTF8ToString(event));
-    },
-    
-    Lib_LogToJS: function (verbosity, message) {
-        window.Unity._logFromUnity(UTF8ToString(verbosity), UTF8ToString(message));
-    }
-});
-```
-
-7. Build your game in WebGL
-8. Copy the code below and paste it in a new JavaScript file in your web page. You can name it `unityInterop.js`
+5. Build your game in WebGL
+6. Copy the code below and paste it in a new JavaScript file in your web page. You can name it `unityInterop.js`
 ```js
 class GameObject {
 
@@ -385,10 +344,10 @@ class Unity {
 window.Unity = Unity;
 ```
 
-9. Import your script in the html page that will load your game:
+7. Import your script in the html page that will load your game:
 ```js
 <script src="js/unity/unityInterop.js"></script>
 ```
 
-10. From any other JavaScript file call `Unity.LoadInstance("url", "elementId");` where the url can be either an external url or the folder inside `wwwroot` where your build is located, and `elementId` is the name of the div where you want to contain your game canvas.
-11. Use the API to control Unity.
+8. From any other JavaScript file call `Unity.LoadInstance("url", "elementId");` where the url can be either an external url or the folder inside `wwwroot` where your build is located, and `elementId` is the name of the div where you want to contain your game canvas.
+9. Use the API to control Unity.
