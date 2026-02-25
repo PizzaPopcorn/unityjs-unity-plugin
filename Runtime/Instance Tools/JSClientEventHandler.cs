@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using AOT;
-using System.Globalization;
-using Newtonsoft.Json;
-using UnityEngine;
 using UnityJS.Payloads;
 
 namespace UnityJS.InstanceTools
