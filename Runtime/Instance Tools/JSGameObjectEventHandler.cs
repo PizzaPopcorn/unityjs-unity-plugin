@@ -2,7 +2,7 @@
 
 namespace UnityJS.InstanceTools
 {
-    public class JSGameObjectEventHandler
+    internal class JSGameObjectEventHandler
     {
         [DllImport("__Internal")]
         private static extern void Lib_SendGameObjectLifeCycleEvent(string key, string eventName);

@@ -109,7 +109,21 @@ namespace UnityJS
                 instance.StartCoroutine(SendEndOfFrameMessage(eventId));
             });
 
-            OnEvent<string, string>("InstanceEvent:GetBuildVersion", eventId => Application.version);
+            OnEvent<string, string>("InstanceEvent:GetBuildVersion", _ => Application.version);
+
+            OnEvent<string>("InstanceEvent:LoadScene", sceneName =>
+            {
+                LogInternal($"Loading scene {sceneName}");
+                JSSceneManager.LoadSceneAsync(sceneName, () =>
+                    {
+                        LogInternal($"Scene {sceneName} loaded successfully");
+                        InvokeEvent($"SceneLoadedEvent:{sceneName}");
+                    },
+                    error => LogError($"Failed to load scene {sceneName}: {error}"));
+            });
+
+            OnEvent<string, bool>("InstanceEvent:IsSceneLoading", _ => JSSceneManager.IsSceneLoading());
+            OnEvent<string, float>("InstanceEvent:GetSceneLoadProgress", _ => JSSceneManager.GetSceneLoadProgress());
         }
 
         private static IEnumerator SendEndOfFrameMessage(string eventId)

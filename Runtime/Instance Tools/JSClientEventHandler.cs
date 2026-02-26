@@ -6,7 +6,7 @@ using UnityJS.Payloads;
 
 namespace UnityJS.InstanceTools
 {
-    public class JSClientEventHandler
+    internal class JSClientEventHandler
     {
         private static readonly Dictionary<string, List<JSIdentifiableCallback>> CallbacksByEventName = new();
         private static bool isListening;
