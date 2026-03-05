@@ -1,4 +1,4 @@
-# Unity JS
+# UniJS
 This library will let you interact with your Unity WebGL build from JS in a more efficient way than using SendMessage. It also includes a JavaScript library for using all available unity functions.
 
 If you are developing a web game that can't run in editor because it depends on browser stuff or you simply want to prototype fast directly in the browser, this plugin is for you.
@@ -16,7 +16,7 @@ If you are developing a web game that can't run in editor because it depends on 
 6. Build your game in WebGL and either copy it somewhere inside your wwwroot folder in your web page project, or upload it to a server.
 7. In your web page project, import the JavaScript library on the html file that will load the Unity instace by adding this line:
 ```js
-<script src="https://cdn.jsdelivr.net/npm/@pizzapopcorn/unityjs/dist/unity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@pizzapopcorn/unijs/dist/unity.min.js"></script>
 ```
 
 8. Create another JavaScript file and also add it to the html page, then call `Unity.LoadInstance("url", "elementId");` where the url can be either an external url or the folder inside `wwwroot` where your build is located, and `elementId` is the name of the div where you want to contain your game canvas.
@@ -34,11 +34,11 @@ For a quick understanding of how to use the library you can follow this guide us
 6. Now go to your JS script and add this line:
 ```js
 Unity.onInstanceReady(() => {
-    Unity.GameObject.GetKeyGameObject("Text").SetText("Unity JS is awesome!");
+    Unity.GameObject.GetKeyGameObject("Text").SetText("UniJS is awesome!");
 });
 ```
 
-7. Save and hit refresh and you will see that the text now will display "Unity JS is awesome!" on load.
+7. Save and hit refresh and you will see that the text now will display "UniJS is awesome!" on load.
 8. The `onInstanceReady` callback helps you make sure that unity is already running and the first scene has completed loading. If you try to get a gameObject outside that callback it will probably return null, unless the whole script is loaded after the unity instance is ready.
 9. There's another way of making sure an object exists and it is by using the lifecycle callbacks. Add the following line to your script:
 ```js
