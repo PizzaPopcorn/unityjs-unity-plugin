@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UnityJS
+namespace UniJS
 {
     public class JSEventButton : MonoBehaviour
     {

@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityJS.InstanceTools;
-using UnityJS.Payloads;
+using UniJS.InstanceTools;
+using UniJS.Payloads;
 
-namespace UnityJS
+namespace UniJS
 {
     public class JSKeyGameObject : MonoBehaviour
     {

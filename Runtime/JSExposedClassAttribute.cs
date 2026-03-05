@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnityJS
+namespace UniJS
 {
     [AttributeUsage(AttributeTargets.Class,  Inherited = false)]
     public class JSExposedClassAttribute : Attribute

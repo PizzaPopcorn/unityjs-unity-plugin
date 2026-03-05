@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using UnityJS.Payloads;
+using UniJS.Payloads;
 
-namespace UnityJS.Events
+namespace UniJS.Events
 {
     [JSExposedClass("gameObject.setActive")]
     public class Event_GameObjectSetActive : JSEventVoid<GameObject, bool> 

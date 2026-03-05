@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UnityJS.Payloads;
+using UniJS.Payloads;
 
-namespace UnityJS
+namespace UniJS
 {
     [System.Serializable]
     public class JSGameObjectData

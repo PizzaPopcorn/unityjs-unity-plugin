@@ -1,5 +1,5 @@
 
-namespace UnityJS.Payloads
+namespace UniJS.Payloads
 {
     [System.Serializable]
     public class Vector2Payload

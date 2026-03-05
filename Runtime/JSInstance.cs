@@ -3,7 +3,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace UnityJS
+namespace UniJS
 {
     using Payloads;
     using InstanceTools;

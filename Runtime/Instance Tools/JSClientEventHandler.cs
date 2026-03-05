@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using AOT;
-using UnityJS.Payloads;
+using UniJS.Payloads;
 
-namespace UnityJS.InstanceTools
+namespace UniJS.InstanceTools
 {
     internal class JSClientEventHandler
     {

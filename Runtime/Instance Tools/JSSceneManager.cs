@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UnityJS.InstanceTools
+namespace UniJS.InstanceTools
 {
     internal class JSSceneManager
     {

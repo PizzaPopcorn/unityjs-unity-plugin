@@ -1,7 +1,7 @@
 ﻿using System;
-using UnityJS.Payloads;
+using UniJS.Payloads;
 
-namespace UnityJS.Events
+namespace UniJS.Events
 {
     public interface IJSEvent<TTarget>
     {

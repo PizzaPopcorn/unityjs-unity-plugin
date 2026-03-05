@@ -1,11 +1,11 @@
 ﻿{
-  "name": "com.pizzapopcorn.unityjs",
+  "name": "com.pizzapopcorn.unijs",
   "version": "1.0.0",
-  "displayName": "Unity JS",
+  "displayName": "UniJS - WebGL Interop",
   "description": "A seamless interop layer to control Unity WebGL builds from the browser's JavaScript context.",
   "unity": "2020.3",
-  "documentationUrl": "https://github.com/PizzaPopcorn/unityjs",
-  "changelogUrl": "https://github.com/PizzaPopcorn/unityjs/blob/master/CHANGELOG.md",
+  "documentationUrl": "https://github.com/PizzaPopcorn/unijs",
+  "changelogUrl": "https://github.com/PizzaPopcorn/unijs/blob/master/CHANGELOG.md",
   "author": {
     "name": "Andres Urrutia",
     "url": "https://github.com/PizzaPopcorn"
@@ -14,7 +14,7 @@
     {
       "displayName": "Sample Scene",
       "description": "Sample scene with basic components",
-      "path": "Samples~/Unity JS Sample"
+      "path": "Samples~/UniJS Sample"
     }
   ]
 }

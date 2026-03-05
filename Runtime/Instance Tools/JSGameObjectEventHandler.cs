@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace UnityJS.InstanceTools
+namespace UniJS.InstanceTools
 {
     internal class JSGameObjectEventHandler
     {

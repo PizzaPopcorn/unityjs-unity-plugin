@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UnityJS.Events
+namespace UniJS.Events
 {
     [JSExposedClass("animator.setTrigger")]
     public class Event_AnimatorSetTrigger : JSEventVoid<GameObject, string>

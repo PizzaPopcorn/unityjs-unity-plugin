@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UnityJS.Events
+namespace UniJS.Events
 {
     [JSExposedClass("text.setText")]
     public class Event_SetText : JSEventVoid<GameObject, string>

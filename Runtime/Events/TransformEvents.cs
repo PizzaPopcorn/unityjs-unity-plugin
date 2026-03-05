@@ -1,7 +1,7 @@
-﻿using UnityJS.Payloads;
+﻿using UniJS.Payloads;
 using UnityEngine;
 
-namespace UnityJS.Events
+namespace UniJS.Events
 {
     [JSExposedClass("transform.translate")]
     public class Event_TransformTranslate : JSEvent<GameObject, Vector3Payload, Vector3Payload>

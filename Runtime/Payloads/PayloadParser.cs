@@ -2,7 +2,7 @@
 using System.Globalization;
 using UnityEngine;
 
-namespace UnityJS.Payloads
+namespace UniJS.Payloads
 {
     public class PayloadParser
     {
