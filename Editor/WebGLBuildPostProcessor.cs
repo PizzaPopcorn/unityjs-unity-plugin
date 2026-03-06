@@ -23,26 +23,20 @@ namespace UniJS.Editor
 
             var settings = UniJSConfig.GetOrCreateSettings();
             string htmlContent = File.ReadAllText(indexPath);
-
-            // 1. Inyección de CDN (Opcional según settings)
-            if (settings.includeCDN && !htmlContent.Contains("unijs/dist/unity.min.js"))
+            
+            //Importing CDN if configured
+            if (settings.includeCDN && !htmlContent.Contains("dist/unity.min.js"))
             {
-                htmlContent = htmlContent.Replace("</head>", $"{CDN_TAG}\n</head>");
+                htmlContent = htmlContent.Replace("</head>", $"  {CDN_TAG}\n</head>");
             }
 
-            // 2. Extracción de JS (Obligatoria)
-            // Buscamos el bloque que contiene la inicialización de Unity
+            //JS code extraction to separate file
             var match = Regex.Match(htmlContent, @"<script>(.*?)createUnityInstance.*?</script>", RegexOptions.Singleline);
             
             if (match.Success)
             {
-                // Limpiamos los tags para el archivo .js
                 string jsContent = match.Value.Replace("<script>", "").Replace("</script>", "");
-                
-                // Escribimos el archivo index.js
                 File.WriteAllText(Path.Combine(buildPath, "index.js"), jsContent);
-                
-                // Reemplazamos en el HTML por la referencia externa
                 htmlContent = Regex.Replace(htmlContent, @"<script>.*?</script>", 
                     "<script src=\"index.js\"></script>", RegexOptions.Singleline);
                 

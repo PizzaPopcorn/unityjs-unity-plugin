@@ -2,7 +2,9 @@
     "name": "uniJS.Editor",
     "rootNamespace": "UniJS.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
