@@ -10,7 +10,7 @@ namespace UniJS.Events
         {
             target.transform.Translate(vector.x, vector.y, vector.z);
             var newPos = target.transform.position;
-            return new Vector3Payload { x = newPos.x, y = newPos.y, z = newPos.z };
+            return new Vector3Payload(newPos);
         }
     }
 
@@ -21,7 +21,7 @@ namespace UniJS.Events
         {
             target.transform.Rotate(euler.x, euler.y, euler.z);
             var newRot = target.transform.eulerAngles;
-            return new Vector3Payload { x = newRot.x, y = newRot.y, z = newRot.z };
+            return new Vector3Payload(newRot);
         }
     }
     

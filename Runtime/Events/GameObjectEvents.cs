@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UniJS.Payloads;
 
@@ -71,4 +73,34 @@ namespace UniJS.Events
             GameObject.Destroy(target);
         }
     }
+    
+    [JSExposedClass("gameObject.hasComponent")]
+    public class Event_GameObjectHasComponent : JSEvent<GameObject, string, bool>
+    {
+        protected override bool Invoke(GameObject target, string componentName)
+        {
+            return target.GetComponent(componentName) != null;
+        }
+    }
+    
+    [JSExposedClass("gameObject.getComponent")]
+    public class Event_GameObjectGetComponent : JSEvent<GameObject, string, object>
+    {
+        protected override object Invoke(GameObject target, string componentName)
+        {
+            var component = target.GetComponent(componentName);
+            return component == null ? null : ComponentPayloadConverter.Convert(component);
+        }
+    }
+    
+    [JSExposedClass("gameObject.addComponent")]
+    public class Event_GameObjectAddComponent : JSEvent<GameObject, string, object>
+    {
+        protected override object Invoke(GameObject target, string componentName)
+        {
+            var component = target.AddComponent(Type.GetType(componentName));
+            return component == null ? null : ComponentPayloadConverter.Convert(component);
+        }
+    }
+    
 }
